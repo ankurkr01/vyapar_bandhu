@@ -34,33 +34,30 @@ const Navbar = () => {
   return (
     <div
       ref={navbar}
-      className={`${
-        theme === "dark" ? "bg-[#121212]" : "bg-white text-black"
-      } w-full z-50 fixed top-0 left-0 py-4 mb-10`}
+      className={`${theme === "dark" ? "bg-[#121212]" : "bg-white text-black"
+        } w-full z-50 fixed top-0 left-0 py-4 mb-10`}
     >
       <div className="container px-5 md:px-16 flex items-center justify-between mx-auto">
         <Link href={"/"}>
-       
-          <Image 
-          src='/images/logo11.png'
-          width={100}
-          height={100}
-          alt="logo"
+
+          <Image
+            src='/images/logo11.png'
+            width={100}
+            height={100}
+            alt="logo"
           />
         </Link>
 
         <div>
           <ul
-            className={`${toggleMenu === true ? "left-0" : "-left-full"} ${
-              theme === "dark"
+            className={`${toggleMenu === true ? "left-0" : "-left-full"} ${theme === "dark"
                 ? "bg-[#121212] text-white"
                 : "bg-white text-black"
-            } z-50 flex md:items-center gap-1 md:gap-5 lg:gap-10 md:relative absolute top-0 md:left-0 w-80 transition-all duration-500 h-screen md:w-auto md:h-auto flex-col md:flex-row shadow-2xl py-24 px-10 md:p-0 md:shadow-none`}
+              } z-50 flex md:items-center gap-1 md:gap-5 lg:gap-10 md:relative absolute top-0 md:left-0 w-80 transition-all duration-500 h-screen md:w-auto md:h-auto flex-col md:flex-row shadow-2xl py-24 px-10 md:p-0 md:shadow-none`}
           >
             <button
-              className={`${
-                theme === "dark" ? "text-white" : "text-black"
-              } md:hidden absolute top-6 right-5`}
+              className={`${theme === "dark" ? "text-white" : "text-black"
+                } md:hidden absolute top-6 right-5`}
               onClick={() => setToggleMenu(false)}
             >
               <CloseOutlinedIcon />
@@ -68,14 +65,29 @@ const Navbar = () => {
             {["home", "features", "pricing", "testimonial"].map((link) => (
               <li
                 key={link}
-                className={`${
-                  selectedItem === link ? "text-rose-600" : ""
-                } capitalize border-b py-4 md:border-none md:py-0 hover:text-rose-600`}
+                className={`${selectedItem === link ? "text-rose-600" : ""
+                  } capitalize border-b py-4 md:border-none md:py-0 hover:text-rose-600`}
                 onClick={() => setSelectedItem(link)}
               >
                 <Link href={`#${link}`}>{link}</Link>
               </li>
             ))}
+
+
+
+            <div class="dropdown inline-block relative">
+              <button class=" text-gray-700 font-semibold    inline-flex items-center">
+                <span class="mr-1">Services</span>
+                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" /> </svg>
+              </button>
+              <ul class="dropdown-menu absolute hidden text-gray-700 pt-1">
+                <li class=""><a class="rounded-t bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" href="#">One</a></li>
+                <li class=""><a class="bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" href="#">Two</a></li>
+                <li class=""><a class="rounded-b bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" href="#">Three </a></li>
+              </ul>
+            </div>
+
+
             <div className="md:hidden mx-auto absolute bottom-16 left-1/2 -translate-x-1/2 flex gap-3">
               <Link
                 href="#"
@@ -118,9 +130,8 @@ const Navbar = () => {
           </button>
           <button
             aria-label="menu"
-            className={`${
-              theme === "dark" ? "text-white" : "text-black"
-            } md:hidden`}
+            className={`${theme === "dark" ? "text-white" : "text-black"
+              } md:hidden`}
             onClick={() => setToggleMenu(true)}
           >
             <MenuIcon />
